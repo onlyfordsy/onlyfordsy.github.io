@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <link href="完整版.css" rel="stylesheet" type="text/css">
+<head>  
+    <meta charset="UTF-8">  
+    <title>新春倒计时 完整</title>  
+    <div class="parent">
+        <span class="child">
+    <script type="text/javascript">  
+        function countTime() {  
+            //获取当前时间  
+            var date = new Date();  
+            var now = date.getTime();  
+            //设置截止时间  
+            var str="2021/2/12 00:00:00";
+            var endDate = new Date(str); 
+            var end = endDate.getTime();  
+            
+            //时间差  
+            var leftTime = end-now; 
+            //定义变量 d,h,m,s保存倒计时的时间  
+            var d,h,m,s;  
+            if (leftTime>=0) {  
+                d = Math.floor(leftTime/1000/60/60/24);  
+                h = Math.floor(leftTime/1000/60/60%24);  
+                m = Math.floor(leftTime/1000/60%60);  
+                s = Math.floor(leftTime/1000%60);                     
+            }  
+            //将倒计时赋值到div中  
+            document.getElementById("_d").innerHTML = d+"天";  
+            document.getElementById("_h").innerHTML = h+"时";  
+            document.getElementById("_m").innerHTML = m+"分";  
+            document.getElementById("_s").innerHTML = s+"秒";  
+            //递归每秒调用countTime方法，显示动态时间效果  
+            setTimeout(countTime,1000);  
+  
+        }  
+    </script> 
+</head >  
+<body onload="countTime()" background="img/花火.jpg" bgcolor="#FEDFE1">
+    <h1>新 春 倒 计 时</h1>  
+    <h1><div id="box1" color="#FEDFE1">  
+        <span id="_d">00</span>  
+        <span id="_h">00</span>  
+        <span id="_m">00</span>  
+        <span id="_s">00</span>  
+        </span>    
+    </div></h1>  
+</body>
+</div> 
+</html>
